@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PreClick Guard</string>
+    <string name="a11y_desc">Reads links shown on screen and shows a safety note before you tap them. Only the link is checked, never your messages.</string>
+</resources>

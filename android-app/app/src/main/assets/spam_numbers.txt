@@ -1,0 +1,2 @@
+# One phone number per line (digits only). Lines starting with # are ignored.
+# The team adds known spam numbers here. The last 10 digits are compared.

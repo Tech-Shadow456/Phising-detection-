@@ -4,3 +4,5 @@ __pycache__/
 data/raw/
 models/bert/
 .ipynb_checkpoints/
+venv/
+data/raw/
