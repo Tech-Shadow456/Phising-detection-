@@ -29,7 +29,7 @@ object Backend {
             val r = LinkResult(url, o.getString("level"), o.getDouble("risk"), notes)
             synchronized(cache) { cache[url] = r }
             r
-        } catch (e: Exception) {
+        } catch (e: Throwable) {
             null
         }
     }

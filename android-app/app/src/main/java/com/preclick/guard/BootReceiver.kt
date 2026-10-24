@@ -10,7 +10,7 @@ class BootReceiver : BroadcastReceiver() {
         if (intent.action == Intent.ACTION_BOOT_COMPLETED && Prefs.isEnabled(context)) {
             try {
                 context.startForegroundService(Intent(context, GuardService::class.java))
-            } catch (e: Exception) {
+            } catch (e: Throwable) {
                 // the notification listener still restarts by itself
             }
         }

@@ -43,7 +43,7 @@ class MainActivity : Activity() {
                 requestNotifPermission()
                 try {
                     startForegroundService(Intent(this, GuardService::class.java))
-                } catch (e: Exception) {
+                } catch (e: Throwable) {
                     // permission may still be missing
                 }
             } else {
@@ -61,7 +61,7 @@ class MainActivity : Activity() {
                 startActivity(
                     Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS, Uri.parse("package:$packageName"))
                 )
-            } catch (e: Exception) {
+            } catch (e: Throwable) {
                 startActivity(Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS))
             }
         }
@@ -86,7 +86,7 @@ class MainActivity : Activity() {
             pool.execute {
                 val out = try {
                     Analyzer.format(Analyzer.evaluate(applicationContext, text))
-                } catch (e: Exception) {
+                } catch (e: Throwable) {
                     "Error: ${e.message}"
                 }
                 runOnUiThread { testResult.text = out }

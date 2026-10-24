@@ -29,7 +29,7 @@ class LinkAccessibilityService : AccessibilityService() {
 
     override fun onServiceConnected() {
         super.onServiceConnected()
-        pool.execute { Scorer.load(applicationContext) }
+        pool.execute { try { Scorer.load(applicationContext) } catch (e: Throwable) { } }
     }
 
     override fun onAccessibilityEvent(event: AccessibilityEvent?) {
@@ -106,7 +106,7 @@ class LinkAccessibilityService : AccessibilityService() {
             overlay = tv
             ui.removeCallbacks(hideTask)
             ui.postDelayed(hideTask, 8000)
-        } catch (e: Exception) {
+        } catch (e: Throwable) {
             overlay = null
         }
     }
@@ -115,7 +115,7 @@ class LinkAccessibilityService : AccessibilityService() {
         overlay?.let {
             try {
                 (getSystemService(WINDOW_SERVICE) as WindowManager).removeView(it)
-            } catch (e: Exception) {
+            } catch (e: Throwable) {
                 // already removed
             }
         }

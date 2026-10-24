@@ -30,7 +30,7 @@ object Scorer {
     private var brands = listOf<String>()
     private var shorteners = listOf<String>()
     private var badTlds = listOf<String>()
-    private val tokenRegex = Regex("(?U)\\b\\w\\w+\\b")
+    private val tokenRegex = Regex("\\b\\w\\w+\\b")
 
     fun isLoaded() = loaded
 

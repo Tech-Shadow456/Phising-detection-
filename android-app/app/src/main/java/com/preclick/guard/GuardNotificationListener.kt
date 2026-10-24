@@ -23,13 +23,13 @@ class GuardNotificationListener : NotificationListenerService() {
 
         val app = try {
             packageManager.getApplicationLabel(packageManager.getApplicationInfo(sbn.packageName, 0)).toString()
-        } catch (e: Exception) {
+        } catch (e: Throwable) {
             sbn.packageName
         }
         pool.execute {
             try {
                 Analyzer.process(applicationContext, app, body)
-            } catch (e: Exception) {
+            } catch (e: Throwable) {
                 // never crash the listener
             }
         }

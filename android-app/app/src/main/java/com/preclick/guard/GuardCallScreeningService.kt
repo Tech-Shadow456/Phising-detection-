@@ -15,7 +15,7 @@ class GuardCallScreeningService : CallScreeningService() {
                     Prefs.addHistory(this, "Spam call - $number")
                 }
             }
-        } catch (e: Exception) {
+        } catch (e: Throwable) {
             // ignore
         }
         respondToCall(details, CallResponse.Builder().build())
